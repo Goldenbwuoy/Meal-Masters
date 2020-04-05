@@ -1,0 +1,35 @@
+{% extends 'admin/_layout.html' %}
+
+{% block body %}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Meal</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Location</th>
+        <th scope="col">Customer</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in order %}
+      <tr>
+        <th scope="row">{{ order.id }}</th>
+        <td>{{order.meal}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.location}}</td>
+        <td>{{order.customer}}</td>
+        <td>
+            <ul>
+              <li><a class="delete-link" href="{{ url_for('remove_order', order_id=order.id)}}">Remove</a></a></li>
+            </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock %}

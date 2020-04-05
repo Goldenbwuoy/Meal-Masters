@@ -1,0 +1,33 @@
+{% extends 'admin/_layout.html'%}
+{% block body %}
+
+    <form method="POST" action="{{ url_for('new_meal')}}" enctype="multipart/form-data">
+       <div class="form-group">
+           <label>Meal Name</label>
+           <input class="form-control" required="required" placeholder="Name" name="name">
+       </div>
+       <div class="form-group">
+           <label>Price</label>
+           <input class="form-control" required="required" placeholder="Price" name="price">
+       </div>
+       <div class="form-group">
+           <label>Category</label>
+           <select class="form-control" name="category">
+               <option disabled selected value="">-None-</option>
+               <option value="rice">Rice</option>
+               <option value="noodles">Noodles</option>
+               <option value="burgers">Burgers</option>
+               <option value="dessert">Dessert</option>
+               <option value="beverages">Beverages</option>
+           </select>
+       </div>
+       <div class="form-group">
+           <label>Image</label>
+           <input type="file" name="picture" required="required">
+       </div>
+       <button type="submit" class="btn btn-outline-info">Add Meal</button>
+    </form>
+
+
+
+{% endblock %}

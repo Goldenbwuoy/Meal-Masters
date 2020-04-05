@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12">
+
+      <h3><a href="{{ url_for('rice') }}">Rice</a></h3>
+      <div class="row">
+        {% for r in rice %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card mb-4">
+            <a href="{{ url_for('view', meal_id=r.id) }}">
+              <div class="card-img-top "
+                style="background: url('static/images/meals/{{r.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% ">
+              </div>
+            </a>
+            <div class="card-body">
+              <h5><a class="card-title" href="#">{{ r.name}}</a></h5>
+              <h4>元 {{r.price}}</h4>
+              <span class="text-warning"></span>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        {% endfor %}
+      </div>
+      <!-- /.row -->
+
+      <h3><a href="{{ url_for('noodle') }}">Noodles</a></h3>
+      <div class="row">
+        {% for noodle in noodles %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card mb-4">
+            <a href="{{ url_for('view', meal_id=noodle.id) }}">
+              <div class="card-img-top "
+                style="background: url('static/images/meals/{{noodle.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% ">
+              </div>
+            </a>
+
+            <div class="card-body">
+              <h5><a class="card-title" id="" href="#">{{ noodle.name}}</a>
+              </h5>
+              <h4>元 {{noodle.price}}</h4>
+              <span class="text-warning"></span>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        {% endfor %}
+      </div>
+
+
+
+      <h3><a href="{{ url_for('burger') }}">Burgers</a></h3>
+      <div class="row">
+        {% for burger in burgers %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card mb-4">
+            <a href="{{ url_for('view', meal_id=burger.id) }}">
+              <div class="card-img-top "
+                style="background: url('static/images/meals/{{burger.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% ">
+              </div>
+            </a>
+
+            <div class="card-body">
+              <h5><a class="card-title" id="" href="#">{{ burger.name}}</a>
+              </h5>
+              <h4>元 {{burger.price}}</h4>
+              <span class="text-warning"></span>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <h3><a href="{{ url_for('dessert') }}">Dessert</a></h3>
+      <div class="row">
+        {% for dst in dessert %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card mb-4">
+            <a href="{{ url_for('view', meal_id=dst.id) }}">
+              <div class="card-img-top "
+                style="background: url('static/images/meals/{{dst.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% ">
+              </div>
+            </a>
+
+            <div class="card-body">
+              <h5><a class="card-title" id="" href="#">{{ dst.name}}</a>
+              </h5>
+              <h4>元 {{dst.price}}</h4>
+              <span class="text-warning"></span>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        {% endfor %}
+      </div>
+
+
+
+      <h3><a href="{{ url_for('beverage') }}">Beverages</a></h3>
+      <div class="row">
+        {% for beverage in beverages %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card mb-4">
+            <a href="{{ url_for('view', meal_id=beverage.id) }}">
+              <div class="card-img-top "
+                style="background: url('static/images/meals/{{beverage.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% ">
+              </div>
+            </a>
+
+            <div class="card-body">
+              <h5><a class="card-title" id="" href="#">{{ beverage.name}}</a>
+              </h5>
+              <h4>元 {{beverage.price}}</h4>
+              <span class="text-warning"></span>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+
+
+{% endblock body %}

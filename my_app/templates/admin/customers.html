@@ -1,0 +1,27 @@
+{% extends 'admin/_layout.html' %}
+
+{% block body%}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customer %}
+      <tr>
+        <th scope="row">{{ customer.id }}</th>
+        <td>{{customer.username}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.mobile_number}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

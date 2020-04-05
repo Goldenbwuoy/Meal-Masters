@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% if title %}
+    <title>{{ title }}</title>
+
+  {% else %}
+    <title>Meal Masters</title>
+  {%endif%}
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="/">Golden's Restaurant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{{ url_for('home')}}">Home</a>
+            <a class="nav-item nav-link" href="{{ url_for('about')}}">About</a>
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" href="#">{{current_user.username}}</a>
+            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+
+            {% else %}
+            <a class="nav-item nav-link" href="{{ url_for('login')}}">Login</a>
+            <a class="nav-item nav-link" href="{{ url_for('register')}}">Register</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true)%}
+
+    {% if messages %}
+
+    {% for category, message in messages %}
+
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+
+    {%endfor%}
+
+    {% endif %}
+    {% endwith%}
+    {% block body %} {% endblock %}
+
+  </div>
+
+  <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+</body>
+
+<!-- The Footer-->
+
+<section id="footer">
+  <div class="container">
+    <div class="row text-center text-xs-center text-sm-left text-md-left">
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled quick-links">
+          <li><a href="/"><i class="fa fa-angle-double-right"></i>Home</a></li>
+          <li><a href="{{ url_for('rice')}}"><i class="fa fa-angle-double-right"></i>Rice</a></li>
+          <li><a href="{{ url_for('noodle')}}"><i class="fa fa-angle-double-right"></i>Noodles</a></li>
+          <li><a href="{{ url_for('burger')}}"><i class="fa fa-angle-double-right"></i>Burgers</a></li>
+          <li><a href="{{ url_for('dessert')}}"><i class="fa fa-angle-double-right"></i>Dessert</a></li>
+          <li><a href="{{ url_for('beverage')}}"><i class="fa fa-angle-double-right"></i>Beverages</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h5>Social</h5>
+        <ul class="list-unstyled quick-links">
+          <li><a href="#"><i class="fa fa-angle-double-right"></i>Facebook</a></li>
+          <li><a href="#"><i class="fa fa-angle-double-right"></i>Youtube</a></li>
+          <li><a href="#"><i class="fa fa-angle-double-right"></i>Twitter</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <h5>The Developer</h5>
+        <ul class="list-unstyled quick-links">
+          <li><a href="#"><i class="fa fa-angle-double-right"></i>Developed by Golden</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+        <p class="h6"><a class="text-green ml-2" href="#" target="">Golden Mumanikidzwa</a> &copy All
+          right Reversed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</html>

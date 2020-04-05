@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="list-group">
+                <a href="/rice" class="list-group-item">Rice</a>
+                <a href="/noodle" class="list-group-item ">Noodles</a>
+                <a href="/burger" class="list-group-item active">Burgers</a>
+                <a href="/dessert" class="list-group-item">Dessert</a>
+                <a href="/beverage" class="list-group-item">Beverages</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-10">
+
+            <div class="row">
+                {% for burger in burgers %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100">
+                        <a href="{{ url_for('view', meal_id=burger.id) }}">
+                            <div class="card-img-top"
+                                 style="background: url('static/images/meals/{{burger.image_file}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">{{ burger.name}}</a>
+                            </h5>
+                            <h4> 元 {{burger.price}}</h4>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"></small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

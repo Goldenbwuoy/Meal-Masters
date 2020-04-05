@@ -1,0 +1,38 @@
+.bg-steel {
+    background-color: black;
+}
+
+.navbar li {
+    color: white;
+}
+
+.site-header {
+    padding-bottom: 4.5rem;
+}
+
+.site-header .navbar-collapse .nav-link.active {
+    font-weight: bold;
+}
+
+.container {
+    padding-top: 2.5rem;
+}
+
+.table-striped ul li {
+    display: inline-block;
+    padding-right: 3px;
+    text-decoration: none;
+}
+
+.table-striped ul li .update-link {
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}
+
+.table-striped ul li .delete-link {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}
+
